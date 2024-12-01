@@ -1,4 +1,4 @@
-- name: Demo on varibles
+- name: Demo on variables
   hosts: all
   vars:
     URL: vars.google.com
