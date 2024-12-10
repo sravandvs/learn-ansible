@@ -1,0 +1,27 @@
+- name: Demo on conditions
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Print OS Redhat
+      ansible.builtin.debug:
+        msg: Redhat
+       when: os == "redhat"
+
+    - name: Print OS Ubuntu
+      ansible.builtin.debug:
+        msg: Ubuntu
+       when: os == "Ubuntu"
+
+    - name: Get Reminder
+      ansible.builtin.shell: echo $(({{ number }}%2))
+        register: reminder
+
+    - name: Print Even Number
+      ansible.builtin.debug:
+        msg: Number {{ number }} is even
+       when: reminder.stdout == "0"
+
+    - name: Boolean Condition
+      ansible.builtin.debug:
+        msg: to-install-true
+       when: to-install
