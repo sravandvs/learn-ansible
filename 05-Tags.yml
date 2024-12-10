@@ -1,0 +1,16 @@
+- name: Demo on Tags
+  hosts: localhost
+  connection: host
+  tasks:
+    - name: Install Nginx
+      ansible.builtin.debug:
+        msg: Installed Nginx
+      tags:
+        - install
+
+    - name: Start Nginx
+      ansible.builtin.debug:
+        msg: Started Nginx
+      tags:
+        - service
+        - systemd
